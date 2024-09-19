@@ -1,0 +1,40 @@
+Compare and contrast the truth tables of inclusive or and exclusive or:
+
+\begin{figure}[H]
+    \centering
+    \begin{tabular}{cc|C{4cm}|C{4cm}}
+        \pythonl{a} & \pythonl{b} & \pythonl{a or b} & \pythonl{exclusive_or(a, b)} \\
+        \hline
+        \pyFalse & \pyFalse & \pyFalse & \pyFalse \\
+        \pyFalse & \pyTrue & \pyTrue & \pyTrue \\
+        \pyTrue & \pyFalse & \pyTrue & \pyTrue \\
+        \pyTrue & \pyTrue & \pyTrue & \pyFalse
+    \end{tabular}
+
+    \medskip
+
+    \caption*{Inclusive Or and Exclusive Or compared in one truth table.}
+\end{figure}
+
+Notice the one difference: \pythonl{exclusive_or} is \pyFalse when \pythonl{a} and \pythonl{b} are both \pyTrue, while \pythonl{a or b} is \pyTrue as we allow for both to be \pyTrue. Remember that \pythonl{or} just means ``at least one of the two variables is \pyTrue.'' It is inclusive and it allows for the possibility of both being true.
+
+So we know that \pythonl{or} is inclusive or in Python. How do we type exclusive or? It turns out that the not equals operator, written as \pythonl{a != b}, is the same as exclusive or. In math, this would be written as $a \neq b.$
+\[a \neq b \qquad \text{ in code is } \qquad \text{\pythonl{a != b}}\]
+Why is $a \neq b$ exclusive or? Let's look at the truth table!
+
+\begin{figure}[H]
+    \centering
+    \begin{tabular}{cc|C{4cm}|C{4cm}}
+        \pythonl{a} & \pythonl{b} & \pythonl{exclusive_or(a, b)} & \pythonl{a != b} \\
+        \hline
+        \pyFalse & \pyFalse & \pyFalse & \pyFalse \\
+        \pyFalse & \pyTrue & \pyTrue & \pyTrue \\
+        \pyTrue & \pyFalse & \pyTrue & \pyTrue \\
+        \pyTrue & \pyTrue & \pyTrue & \pyFalse
+    \end{tabular}
+
+    \medskip
+
+    \caption*{Exclusive Or compared to Not Equal.}
+\end{figure}
+If $a$ is false and b is false, then two variables are equal (\pythonl{False == False}), so not equal is \pyFalse. If both variables are true, then the two variables are equal (\pythonl{True == True}), so not equal is \pyFalse. So we get that not equal is only True when both bools don't match, which is the same as exclusive or: we want one but not the other.
